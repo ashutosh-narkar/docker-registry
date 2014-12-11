@@ -29,9 +29,9 @@ RUN ln -s /etc/nginx/sites-available/docker-registry /etc/nginx/sites-enabled/do
 # Users authorized to use the docker registry
 RUN htpasswd -c -b /etc/nginx/docker-registry.htpasswd superuser superuser
 
-# Copy the SSL certificate and key
-COPY dev-docker-registry.com.crt /etc/ssl/certs/docker-registry
-COPY dev-docker-registry.com.key /etc/ssl/private/docker-registry
+# Uncomment to use SSL - Copy the SSL certificate and key
+#COPY dev-docker-registry.com.crt /etc/ssl/certs/docker-registry
+#COPY dev-docker-registry.com.key /etc/ssl/private/docker-registry
 
 # Expose ports
 EXPOSE 8080

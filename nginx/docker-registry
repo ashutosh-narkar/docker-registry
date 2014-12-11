@@ -11,9 +11,10 @@ server {
  listen 8080;
  server_name dockerreg.cyanoptics.com;
 
- ssl on;
- ssl_certificate /etc/ssl/certs/docker-registry;
- ssl_certificate_key /etc/ssl/private/docker-registry;
+ # Uncomment to use SSL
+ #ssl on;
+ #ssl_certificate /etc/ssl/certs/docker-registry;
+ #ssl_certificate_key /etc/ssl/private/docker-registry;
 
  proxy_set_header Host       $http_host;   # required for Docker client sake
  proxy_set_header X-Real-IP  $remote_addr; # pass on real client IP
