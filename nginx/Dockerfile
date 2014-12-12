@@ -33,6 +33,10 @@ RUN htpasswd -c -b /etc/nginx/docker-registry.htpasswd superuser superuser
 #COPY dev-docker-registry.com.crt /etc/ssl/certs/docker-registry
 #COPY dev-docker-registry.com.key /etc/ssl/private/docker-registry
 
+# Forward request and error logs to Docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 # Expose ports
 EXPOSE 8080
 
