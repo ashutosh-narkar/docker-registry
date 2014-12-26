@@ -16,6 +16,14 @@ Documentation
 
      > Commands 3.i and 3.ii will create a docker image with Ubuntu 14.04 as base with Docker registry installed. This image will be used to create a daemonized Docker container called 'docker_registry'. The container will publish its port 5000 to port 5000 on the host. Finally, the data under the container's '/registry' directory will be mounted to '/registry' on the host. This directory will hold the Docker images we push to the registry.
 
+4. **Build and Run the Nginx Docker image:**
+  1. cd nginx
+  2. docker build --rm -t nginx_image .
+  3. docker run -d --name nginx_container -p 8080:8080 --link docker_registry:docker_nginx nginx_image
+
+    > Commands 4.i and 4.ii will create a docker image with Ubuntu 14.04 as base with Nginx installed. This image will be used to create a daemonized Docker container called 'nginx_container'. The container will publish its port 8080 to port 8080 on the host. The '--link' directive will enable the nginx container to obtain the IP address of the registry container which is needed to configure nginx properly. 
+
+
 
 For a tutorial on *pushing to* and *pulling from* a private Docker registry refer the page [Pull and Publish to Docker Registry](https://confluence.cyanoptics.com/display/BP2/Pull+and+Publish+to+Docker+Registry).
 
