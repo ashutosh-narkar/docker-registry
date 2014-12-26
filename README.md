@@ -23,7 +23,7 @@ Documentation
 
     > Commands 4.i and 4.ii will create a docker image with Ubuntu 14.04 as base with Nginx installed. This image will be used to create a daemonized Docker container called 'nginx_container'. The container will publish its port 8080 to port 8080 on the host. The '--link' directive will enable the nginx container to obtain the IP address of the registry container which is needed to configure nginx properly.
 
-At this point, we have a private Docker registry running behind a Nginx server which provides authentication.  Nginx access and error logs are sent to the Docker log collector on the Docker host. To view logs use *docker logs <container_name>*.
+At this point, we have a private Docker registry running behind a Nginx server which provides authentication.  Nginx access and error logs are sent to the Docker log collector on the Docker host. To view logs use *docker logs \<container_name\>*.
 To provide SSL encryption, change the files  Dockerfile and docker-registry in the nginx directory and provide a SSL certificate.
 
 
